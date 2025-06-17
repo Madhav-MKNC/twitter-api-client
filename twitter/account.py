@@ -796,9 +796,12 @@ class Account:
             if _id != user_id:
                 self.gql('POST', Operation.DeleteDraftTweet, {'draft_tweet_id': _id})
 
-    def notifications(self, params: dict = None) -> dict:
+    def notifications(self, params: dict = None, type: str = "all") -> dict:
+        """
+        type: all, verified, mentions
+        """
         r = self.session.get(
-            f'{self.v2_api}/notifications/all.json',
+            f'{self.v2_api}/notifications/{type}.json',
             headers=get_headers(self.session),
             params=params or live_notification_params
         )
