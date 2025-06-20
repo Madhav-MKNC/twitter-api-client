@@ -82,6 +82,9 @@ account.unbookmark(123456)
 account.pin(123456)
 account.unpin(123456)
 
+# get self user mentions
+account.get_user_mentions(x_handle="MY_X_HANDLE")
+
 # users
 account.follow(1234)
 account.unfollow(1234)
